@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            margin-top: 10%;
+        }
+       .calculator{
+        margin: auto;
+        display: grid;
+        grid: 100px 100px 100px 100px 100px/ 100px 100px 100px 100px;
+        background-color: aliceblue;
+       }
+       .num{
+        background-color: black;
+       }
+       .btn{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        font-size: 25px;
+        border:none;
+       }
+       .res{
+        grid-column: 1 / span 3;
+        padding-left: 10px;
+        width: 100%;
+        height: 100%;
+        font-size: 25px;
+       }
+       .clr{
+        background-color: #4CB7A5;
+       }
+       .op{
+        background-color: gray;
+       }
+    </style>
+</head>
+<body>
+    <script>
+        function display(value){
+            document.getElementById("res").value+=value;
+        }
+        function calculate(){
+            var val = document.getElementById("res").value;
+            var ans = eval(val);
+            document.getElementById("res").value= ans;
+        }
+        function clearScreen(){
+            document.getElementById("res").value = "";
+        }
+    </script>
+    <div class="container">
+        <div class="calculator">
+        <input type="text" class="res" id="res" disabled>
+        <div class="num"><button class="btn clr" onclick="clearScreen()">AC</button></div>
+        <div class="num"><button class="btn"  onclick="display('9')">9</button></div>
+        <div class="num"><button class="btn"  onclick="display('8')">8</button></div>
+        <div class="num"><button class="btn"  onclick="display('7')">7</button></div>
+        <div class="num"><button class="btn op"  onclick="display('+')">+</button></div>
+        <div class="num"><button class="btn"  onclick="display('6')">6</button></div>
+        <div class="num"><button class="btn"  onclick="display('5')">5</button></div>
+        <div class="num"><button class="btn"  onclick="display('4')">4</button></div>
+        <div class="num"><button class="btn op"  onclick="display('-')">-</button></div>
+        <div class="num"><button class="btn"  onclick="display('3')">3</button></div>
+        <div class="num"><button class="btn"  onclick="display('2')">2</button></div>
+        <div class="num"><button class="btn"  onclick="display('1')">1</button></div>
+        <div class="num"><button class="btn op"  onclick="display('/')">/</button></div>
+        <div class="num"><button class="btn"  onclick="display('.')">.</button></div>
+        <div class="num"><button class="btn"  onclick="display('0')">0</button></div>
+        <div class="num"><button class="btn"  onclick="calculate()">=</button></div>
+        <div class="num"><button class="btn op"  onclick="display('*')">x</button></div>
+        </div>
+    </div>
+</body>
+</html>
